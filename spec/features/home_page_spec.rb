@@ -1,8 +1,8 @@
 
 
-feature "Testing home page" do
-  scenario "has text" do
+feature "Homepage" do
+  scenario "user can see a greeting" do
     visit '/'
-    expect(page).to have_content "Hello, world!"
+    expect(page).to have_content "Welcome to your Bookmark Manager"
   end
 end

@@ -1,9 +1,15 @@
 require 'sinatra/base'
+require './lib/bookmarks'
 
-class Bookmarks < Sinatra::Base
+class BookmarkApp < Sinatra::Base
 
   get '/' do
-    "Hello, world!"
+    erb :home
+  end
+
+  post '/bookmarks' do
+    @bookmarks = Bookmarks.view_all
+    erb :bookmarks
   end
 
   run! if app_file == $0

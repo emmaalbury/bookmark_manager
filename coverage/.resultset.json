@@ -1,6 +1,23 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/darciewalsh/Projects/bookmark_manager/spec/bookmark_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
       "/Users/darciewalsh/Projects/bookmark_manager/spec/features/home_page_spec.rb": [
         null,
         null,
@@ -10,8 +27,19 @@
         1,
         null,
         null
+      ],
+      "/Users/darciewalsh/Projects/bookmark_manager/spec/features/viewing_bookmarks_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1537796784
+    "timestamp": 1537801332
   }
 }

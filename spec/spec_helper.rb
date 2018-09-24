@@ -4,7 +4,7 @@ require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
 
-Capybara.app = Bookmarks
+Capybara.app = BookmarkApp
 
 ENV['RACK_ENV'] = 'test'
 
