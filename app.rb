@@ -4,6 +4,7 @@ require './lib/bookmarks'
 class BookmarkApp < Sinatra::Base
 
   get '/' do
+    # p ENV
     erb :home
   end
 

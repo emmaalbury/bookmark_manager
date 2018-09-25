@@ -1,5 +1,4 @@
 
-
 feature "Homepage" do
   scenario "user can see a greeting" do
     visit '/'
