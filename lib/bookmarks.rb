@@ -1,15 +1,24 @@
 require 'pg'
 
-class Bookmarks
+class Bookmark
 
   def self.view_all
     if ENV['ENVIRONMENT'] == 'test'
-      con = PG.connect :dbname => 'bookmark_manager_test'
+      connection = PG.connect :dbname => 'bookmark_manager_test'
     else
-      con = PG.connect :dbname => 'bookmark_manager'
+      connection = PG.connect :dbname => 'bookmark_manager'
     end
-    result = con.exec("SELECT * FROM bookmarks")
+    result = connection.exec("SELECT * FROM bookmarks")
     result.map { |bookmark| bookmark['url'] }
+  end
+
+  def self.create(url:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'bookmark_manager_test')
+    else
+      connection = PG.connect(dbname: 'bookmark_manager')
+    end
+    connection.exec("INSERT INTO bookmarks (url) VALUES('#{url}')")
   end
 
 end
