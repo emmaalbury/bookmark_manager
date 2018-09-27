@@ -1,6 +1,6 @@
 require 'pg'
 
-class Bookmarks
+class Bookmark
 
   def self.view_all
     # connection =PG.connect(dbname: 'bookmark_manager')
@@ -24,5 +24,4 @@ class Bookmarks
 
        connection.exec("INSERT INTO bookmarks (url) VALUES('#{url}')")
      end
-
 end

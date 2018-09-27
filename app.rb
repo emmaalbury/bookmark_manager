@@ -2,19 +2,24 @@ require 'sinatra/base'
 require './lib/bookmarks'
 
 class BookmarkApp < Sinatra::Base
+  enable :sessions
 
   get '/' do
     # p ENV
     erb :home
   end
 
+  # post '/bookmarks' do
+  #   @bookmarks = Bookmarks.view_all
+  #   erb :bookmarks
+  # end
   post '/bookmarks' do
-    Bookmarks.create(url: params['url'])
+    Bookmark.create(url: params['url'])
     redirect '/bookmarks'
   end
 
   get '/bookmarks' do
-    @bookmarks = Bookmarks.view_all
+    @bookmarks = Bookmark.view_all
     erb :bookmarks
   end
 
