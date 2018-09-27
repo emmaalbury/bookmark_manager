@@ -2,9 +2,9 @@ source "https://rubygems.org"
 
 ruby "2.5.1"
 
-gem "capybara"
+gem "capybara", group: :test
 gem "pg"
-gem "rspec"
+gem "rspec", group: :test
 gem "rubocop"
 gem 'simplecov'
 gem 'simplecov-console'
