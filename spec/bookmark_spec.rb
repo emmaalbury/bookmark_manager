@@ -23,5 +23,10 @@ describe Bookmark do
       Bookmark.create(url: 'http://www.testbookmark.com')
       expect(Bookmark.view_all).to include 'http://www.testbookmark.com'
     end
+
+    it 'throws error if URL is invalid' do
+      Bookmark.create(url: 'testbookmark.com')
+      expect(Bookmark.view_all).not_to include 'testbookmark.com'
+    end
   end
 end

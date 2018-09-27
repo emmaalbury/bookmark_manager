@@ -2,3 +2,9 @@
   <input type="text" name="url" />
   <input type="submit" value="Submit" />
 </form>
+
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+  </div>
+<% end %>

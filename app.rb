@@ -1,8 +1,10 @@
 require 'sinatra/base'
 require './lib/bookmarks'
+require 'sinatra/flash'
 
 class BookmarkApp < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     # p ENV
@@ -14,8 +16,12 @@ class BookmarkApp < Sinatra::Base
   #   erb :bookmarks
   # end
   post '/bookmarks' do
-    Bookmark.create(url: params['url'])
-    redirect '/bookmarks'
+    if Bookmark.create(url: params['url'])
+      redirect '/bookmarks'
+    else
+      flash[:notice] = 'Invalid URL. Please try again.'
+      redirect '/bookmarks/new'
+    end
   end
 
   get '/bookmarks' do
