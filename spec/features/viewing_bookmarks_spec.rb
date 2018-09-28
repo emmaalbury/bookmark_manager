@@ -7,14 +7,14 @@ feature "Viewing bookmarks" do
     # con.exec("INSERT INTO bookmarks (url) VALUES('http://www.makersacademy.com');")
     # con.exec("INSERT INTO bookmarks (url) VALUES('http://www.destroyallsoftware.com');")
     # con.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
-    Bookmark.create(url: "http://www.makersacademy.com")
-    Bookmark.create(url: "http://www.destroyallsoftware.com")
-    Bookmark.create(url: "http://www.google.com")
+    Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy")
+    Bookmark.create(url: "http://www.destroyallsoftware.com", title: "Destroy All Software")
+    Bookmark.create(url: "http://www.google.com", title: "Google")
 
     visit '/'
     click_button "View Bookmarks"
-    expect(page).to have_content "http://www.makersacademy.com"
-    expect(page).to have_content "http://www.destroyallsoftware.com"
-    expect(page).to have_content "http://www.google.com"
+    expect(page).to have_content "Makers Academy"
+    expect(page).to have_content "Destroy All Software"
+    expect(page).to have_content "Google"
   end
 end
